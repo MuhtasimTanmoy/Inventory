@@ -16,15 +16,19 @@ export default class CardItem extends Component {
   }
 
   render(){
-    console.log(this.props.id);
+
+
     return (
       <div className="ui segment">
 
       <a href={'/item/'+ this.props.id} style={{position:'absolute',right:'80px',top:'15px',cursor:'pointer'}}>
       Details
       </a>
-      <div className="left floated">
+      <div className="left floated">  
+      <div className="ui text">
       {this.props.title} - {this.props.text}
+
+      </div>
 </div>
       <i className="trash icon big"    onClick={this.delete.bind(this)}   style={{position:'absolute',right:'15px',top:'10px',cursor:'pointer'}}></i>
 

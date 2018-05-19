@@ -1,5 +1,13 @@
 import { FlowRouter } from 'meteor/kadira:flow-router';
 import { mount } from 'react-mounter';
+// import {Item} from '/imports/api/item/Item.js';
+//
+// import {Picker} from 'meteor/meteorhacks:picker';
+//
+// Picker.route('/item/:_id', function(params, req, res, next) {
+//   var post = Item.findOne(params._id);
+//   res.end(post.content);
+// });
 
 import HomePage from '/imports/ui/pages/HomePage.jsx';
 import RegisterPage from '/imports/ui/pages/RegisterPage';

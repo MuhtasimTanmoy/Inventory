@@ -8,7 +8,7 @@ export default class StartPage extends Component {
 
 
             <div className="ui startPage">
-                <h1>NOTE</h1>
+                <h1>Inventory</h1>
             </div>
 
 

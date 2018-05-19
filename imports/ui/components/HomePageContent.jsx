@@ -16,18 +16,54 @@ class HomePageContent extends Component {
    title : ReactDOM.findDOMNode(this.refs.title).value.trim(),
    text : ReactDOM.findDOMNode(this.refs.text).value.trim(),
 };
+
+var file = $("input[type=file]").get(0).files[0];
+var files = []
+files.push(file)
+console.log("files is here:"+files);
   console.log(data);
 
-  Meteor.call("item.insert",data,function(error,result){
-    if(error){
-      console.log("error", error);
-      window.alert(error.message)
-    }
-    if(result){
-      console.log("Success");
-      console.log(result);
-   }
-  });
+
+  if(file){
+    Cloudinary.upload(files, function(err, res) {
+                console.log("Upload Error: " + err);
+                console.log(res);
+                data['filePath'] = res.secure_url;
+
+                Meteor.call("item.insert",data,function(error,result){
+                  if(error){
+                    console.log("error", error);
+                    window.alert(error.message)
+                  }
+                  if(result){
+                    console.log("Success");
+                    console.log(result);
+                 }
+               }.bind(this));
+
+
+
+            }.bind(this));
+  }
+
+  else{
+    Meteor.call("item.insert",data,function(error,result){
+      if(error){
+        console.log("error", error);
+        window.alert(error.message)
+      }
+      if(result){
+        console.log("Success");
+        console.log(result);
+     }
+   });
+
+  }
+
+
+
+
+
 
 
   title=ReactDOM.findDOMNode(this.refs.title).value="";
@@ -54,16 +90,20 @@ renderItems(){
       <form className="ui form" >
           <div className="field">
             <div className="ui large icon fluid input">
-
               <input type="text" id="title" ref="title" placeholder="Take a note......."></input>
 
             </div>
           </div>
 
           <div className="field" >
+
             <textarea ref="text" placeholder="Content"  rows="5"></textarea>
           </div>
-          <div className="ui blue fluid button" style={{width:"30%",marginLeft:"35%"}} onClick={this.handleSubmit.bind(this)}>Save</div>
+
+          <div className="field">
+                          <input type="file" className='uploadInput'/>
+          </div>
+          <div className="ui blue fluid button" style={{width:"30%",marginLeft:"35%"}} onClick={this.handleSubmit.bind(this)}>Upload</div>
         </form>
 
         {this.renderItems()}

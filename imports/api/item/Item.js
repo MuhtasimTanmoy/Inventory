@@ -27,6 +27,7 @@ export const Item = new ItemCollection('Item');
 Item.schema = new SimpleSchema({
     title:{type:String},
     text:{type:String},
+    filePath:{type:String,optional:true},
     createdAt: { type: Date },
     createdBy: { type: String },
 });

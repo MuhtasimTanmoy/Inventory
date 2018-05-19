@@ -15,6 +15,7 @@ class ItemController {
         let ret = Item.insert({
             title:data.title,
             text:data.text,
+            dataPath:data.filePath,
         });
         return ret;
     }

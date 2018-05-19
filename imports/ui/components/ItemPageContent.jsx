@@ -10,13 +10,22 @@ class ItemPageContent extends Component {
   renderInfo(){
 
     let returnIt;
+    console.log(this.props.item);
 
     if(this.props.item){
+
       returnIt=<div>
       <h1>Item {this.props.item.title}
   <br/>
       {this.props.item.text}
       </h1>
+
+
+      <div className="ui segment">
+      <img className="ui image" src={this.props.item.dataPath}>
+      </img>
+
+      </div>
 
       </div>
   }
