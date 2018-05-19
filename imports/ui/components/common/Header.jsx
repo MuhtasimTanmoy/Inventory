@@ -1,5 +1,5 @@
 import React,{Component} from "react";
-import {createContainer} from 'meteor/react-meteor-data';
+import {withTracker} from 'meteor/react-meteor-data';
 import Login from '/imports/ui/components/auth/Login.jsx';
 import { FlowRouter } from 'meteor/kadira:flow-router';
 
@@ -30,7 +30,7 @@ class Header extends Component {
         Meteor.logout(function(){
           FlowRouter.go('/');
         });
-        
+
 
         $("#goHome").click();
 
@@ -129,10 +129,10 @@ class Header extends Component {
   }
 }
 
-export default createContainer(  (props) => {
+export default withTracker(  (props) => {
 
     return{
 
         user: Meteor.user(),
     };
-}, Header);
+})(Header);
