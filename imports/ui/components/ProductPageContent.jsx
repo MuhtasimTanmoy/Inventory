@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import {withTracker} from 'meteor/react-meteor-data';
-import {Item} from '/imports/api/item/Item.js';
+import {Product} from '/imports/api/product/Product.js';
 
 
 
-class ItemPageContent extends Component {
+export default class ProductPageContent extends Component {
 
 
   renderInfo(){
@@ -15,7 +15,7 @@ class ItemPageContent extends Component {
     if(this.props.item){
 
       returnIt=<div>
-      <h1>Item {this.props.item.title}
+      <h1>Product {this.props.item.title}
   <br/>
       {this.props.item.text}
       </h1>
@@ -47,7 +47,7 @@ class ItemPageContent extends Component {
 
             <div className="ui container">
 
-            {this.renderInfo()}
+
             </div>
 
 
@@ -57,10 +57,10 @@ class ItemPageContent extends Component {
 }
 
 
-export default withTracker((props) => {
-  Meteor.subscribe('oneItem',props.id);
-  return {
-    user:Meteor.user(),
-    item: Item.findOne(props.id),
-  };
-})(ItemPageContent);
+// export default withTracker((props) => {
+//   Meteor.subscribe('oneProduct',props.id);
+//   return {
+//     user:Meteor.user(),
+//     item: Product.findOne(props.id),
+//   };
+// })(ProductPageContent);

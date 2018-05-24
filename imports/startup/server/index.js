@@ -6,6 +6,11 @@ import '/imports/api/item/method.js';
 import '/imports/api/item/server/publication.js';
 
 
+import '/imports/api/product/Product.js';
+import '/imports/api/product/method.js';
+import '/imports/api/product/server/publication.js';
+
+
 
 
 Cloudinary.config({

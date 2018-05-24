@@ -58,12 +58,7 @@ class Header extends Component {
       return loggedIn;
     }
 
-    sideBarToggle(){
-      $('.tag.sidebar')
-  .sidebar('setting', 'transition', 'overlay')
-  .sidebar('toggle')
-;
-    }
+
 
     notLoggedInDiv(){
       let notLoggedIn= <a className="item" onClick={this.renderLogin}>Login</a>
@@ -75,7 +70,7 @@ class Header extends Component {
 
     return (
 
-      <div className="ui white large top fixed menu">
+      <div className="ui large top fixed menu" >
 
         <div className="ui page dimmer">
           <div className="content">
@@ -85,31 +80,11 @@ class Header extends Component {
           </div>
         </div>
 
-      <div className="sidebarContainer">
-        <div className="ui tag sidebar vertical menu">
 
-            <span  className="header center">
-              <a href="/" id="goHome"></a>
-              <h1>Note</h1>
-            </span>
 
-          <hr/>
-          <a className="item">
-     1
-   </a>
-   <a className="item">
-     2
-   </a>
-   <a className="item">
-     3
-   </a>
-        </div>
-        </div>
           <div className="left menu">
-            <a  className="item" >
-              <i className="align justify large icon"></i>
-            </a>
-            <a href="/" className="item"><h2>Note</h2></a>
+
+            <a href="/" className="item"><h2>Inventory</h2></a>
 
 
           </div>

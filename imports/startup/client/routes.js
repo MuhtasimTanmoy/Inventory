@@ -15,6 +15,8 @@ import TestPage from '/imports/ui/pages/TestPage';
 import StartPage from '/imports/ui/pages/StartPage';
 import ProfilePage from '/imports/ui/pages/ProfilePage';
 import ItemPage from '/imports/ui/pages/ItemPage';
+import ProductPage from '/imports/ui/pages/ProductPage';
+
 
 
 
@@ -66,6 +68,16 @@ FlowRouter.route('/profile', {
       mount(ProfilePage);
   }
 });
+
+FlowRouter.route('/product', {
+  name: 'ProductPage',
+  action(params, queryParams) {
+      console.log("product route is being called...");
+      // Meteor.userId() ? mount(Dashboard) : mount(Login);
+      mount(ProductPage);
+  }
+});
+
 
 
 
