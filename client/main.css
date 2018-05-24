@@ -372,3 +372,13 @@ pusher{
 	margin-right: 200px;
 	margin-bottom: 50px;
 }
+
+
+.ui.grey.complainAddBtn{
+    position: fixed;
+  background-color: #696969;
+  color: #fff;
+    bottom: 5vh;
+    right: 2.5vw;
+    z-index: 999;
+}

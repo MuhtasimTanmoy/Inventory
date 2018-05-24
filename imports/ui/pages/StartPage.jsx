@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import Layout from '/imports/ui/layouts/Layout.jsx';
+import Layout from '/imports/ui/layouts/FullLayout.jsx';
 import HomePageContent from '/imports/ui/components/StartPageContent.jsx';
 
 export default class HomePage extends Component{

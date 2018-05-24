@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import Layout from '/imports/ui/layouts/SampleLayout.jsx';
+import Layout from '/imports/ui/layouts/Layout.jsx';
 import TestPageContent from '/imports/ui/components/dummy.jsx';
 
 export default class HomePage extends Component{

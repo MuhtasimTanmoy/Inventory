@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import {withTracker} from 'meteor/react-meteor-data';
 import {Product} from '/imports/api/product/Product.js';
+import { FlowRouter } from 'meteor/kadira:flow-router';
+
 
 
 
@@ -39,6 +41,10 @@ export default class ProductPageContent extends Component {
 
 }
 
+addProduct(){
+  FlowRouter.go('/addproduct');
+
+}
 
     render() {
 
@@ -46,6 +52,12 @@ export default class ProductPageContent extends Component {
 
 
             <div className="ui container">
+
+
+
+    <div className="circular ui icon grey button  complainAddBtn"  onClick={this.addProduct.bind(this)}>
+      <i className="icon add"></i>
+    </div>
 
 
             </div>

@@ -16,6 +16,8 @@ import StartPage from '/imports/ui/pages/StartPage';
 import ProfilePage from '/imports/ui/pages/ProfilePage';
 import ItemPage from '/imports/ui/pages/ItemPage';
 import ProductPage from '/imports/ui/pages/ProductPage';
+import AddProductPage from '/imports/ui/pages/AddProductPage';
+
 
 
 
@@ -75,6 +77,15 @@ FlowRouter.route('/product', {
       console.log("product route is being called...");
       // Meteor.userId() ? mount(Dashboard) : mount(Login);
       mount(ProductPage);
+  }
+});
+
+FlowRouter.route('/addproduct', {
+  name: 'AddProductPage',
+  action(params, queryParams) {
+      console.log("addproduct route is being called...");
+      // Meteor.userId() ? mount(Dashboard) : mount(Login);
+      mount(AddProductPage);
   }
 });
 
