@@ -11,6 +11,8 @@ class ProductController {
         this.printHello();
         let usr = Meteor.user();
 
+        console.log(data);
+
         // let usr = Meteor.user();
         let ret = Product.insert({
             dataPath:data.filePath,

@@ -2,49 +2,38 @@ import React, { Component } from "react";
 import {withTracker} from 'meteor/react-meteor-data';
 import {Product} from '/imports/api/product/Product.js';
 import { FlowRouter } from 'meteor/kadira:flow-router';
+import ProductItem from './card/ProductItem';
 
 
 
 
-export default class ProductPageContent extends Component {
+class ProductPageContent extends Component {
 
 
-  renderInfo(){
-
-    let returnIt;
-    console.log(this.props.item);
-
-    if(this.props.item){
-
-      returnIt=<div>
-      <h1>Product {this.props.item.title}
-  <br/>
-      {this.props.item.text}
-      </h1>
-
-
-      <div className="ui segment">
-      <img className="ui image" src={this.props.item.dataPath}>
-      </img>
-
-      </div>
-
-      </div>
-  }
-  else{
-    returnIt=<div className="ui segment">
-      Loading
-    </div>
-  }
-
-  return returnIt;
-
-}
 
 addProduct(){
   FlowRouter.go('/addproduct');
-
 }
+ test(){
+   // <ProductItem image="/images/upload.jpg" name="tanmoy" quantity="10" />
+   // <ProductItem image="/images/upload.jpg" name="tanmoy" quantity="10" />
+   //
+   // <ProductItem image="/images/upload.jpg" name="tanmoy" quantity="10" />
+   //
+   // <ProductItem image="/images/upload.jpg" name="tanmoy" quantity="10" />
+
+ }
+
+
+
+renderProducts(){
+  return this.props.products.map((task) => (
+    <ProductItem key={task._id} id={task._id} createdAt={task.createdAt} image={task.dataPath} quantity={task.price}  name={task.name} />
+  ));
+}
+
+
+
 
     render() {
 
@@ -52,12 +41,18 @@ addProduct(){
 
 
             <div className="ui container">
-
-
-
     <div className="circular ui icon grey button  complainAddBtn"  onClick={this.addProduct.bind(this)}>
       <i className="icon add"></i>
     </div>
+
+    <div style={{paddingTop:"40px"}}>
+
+  {this.renderProducts()}
+    </div>
+
+
+
+
 
 
             </div>
@@ -69,10 +64,10 @@ addProduct(){
 }
 
 
-// export default withTracker((props) => {
-//   Meteor.subscribe('oneProduct',props.id);
-//   return {
-//     user:Meteor.user(),
-//     item: Product.findOne(props.id),
-//   };
-// })(ProductPageContent);
+export default withTracker((props) => {
+  Meteor.subscribe('products');
+  return {
+    user:Meteor.user(),
+    products: Product.find({},{ sort: { createdAt: -1 } }).fetch(),
+  };
+})(ProductPageContent);

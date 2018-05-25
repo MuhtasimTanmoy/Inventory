@@ -12,7 +12,7 @@ Meteor.methods({
         // if (!this.userId) {
         //     throw new Meteor.Error('not-authorized');
         // }
-        console.log(data);
+
         // console.log(this);
 
         let usr = Meteor.user();

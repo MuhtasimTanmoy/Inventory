@@ -9,6 +9,7 @@ class ProductCollection extends Mongo.Collection {
 
         doc.createdAt = now;
         doc.createdBy = Meteor.userId();
+        doc.uploadedBy=Meteor.userId();
 
         return super.insert(doc, callback);
     }
