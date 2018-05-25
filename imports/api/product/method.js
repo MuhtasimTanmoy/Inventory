@@ -28,12 +28,24 @@ Meteor.methods({
       console.log(data);
 
 
-      // let ret=Product.update(data.id, {
-      //           $set: {
-      //             title:data.title,
-      //             text:data.text,
-      //           },
-      //       });
+      let ret=Product.update(data.id, {
+                $set: {
+                  dataPath:data.filePath,
+                  name:data.name,
+                  category:data.category,
+                  subCategory:data.subCategory,
+                  color:data.color,
+                  size:data.size,
+                  style:data.style,
+                  price:data.price,
+                  quantity:data.quantity,
+                  uploadedBy:data.uploadedBy,
+                  suppliedBy:data.suppliedBy,
+                  purchasePrice:data.purchasePrice,
+                  sellingPrice:data.sellingPrice,
+                  commission:data.commission,
+                },
+            });
 
         // if ( Meteor.user() != null) {
 
