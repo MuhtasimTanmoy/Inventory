@@ -17,6 +17,8 @@ import ProfilePage from '/imports/ui/pages/ProfilePage';
 import ItemPage from '/imports/ui/pages/ItemPage';
 import ProductPage from '/imports/ui/pages/ProductPage';
 import AddProductPage from '/imports/ui/pages/AddProductPage';
+import SingleProductPage from '/imports/ui/pages/SingleProductPage';
+
 
 
 
@@ -96,5 +98,13 @@ FlowRouter.route("/item/:id", {
   action(params) {
     console.log(params);
     mount(ItemPage, {id:params.id} );
+  }
+});
+
+
+FlowRouter.route("/product/:id", {
+  action(params) {
+    console.log(params);
+    mount(SingleProductPage, {id:params.id} );
   }
 });

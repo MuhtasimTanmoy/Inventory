@@ -9,10 +9,10 @@ if (Meteor.isServer) {
     return Product.find({createdBy:this.userId});
   });
 
-  //
-  // Meteor.publish('oneProduct', function (itemId) {
-  //   console.log(itemId);
-  //   return Product.find({"_id":itemId});
-  // });
+  
+  Meteor.publish('oneProduct', function (itemId) {
+    console.log(itemId);
+    return Product.find({"_id":itemId});
+  });
 
 }
